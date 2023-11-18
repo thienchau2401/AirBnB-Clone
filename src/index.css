@@ -1,3 +1,83 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.roomOwner .owner .imgOwner,
+.roomOwner .roomCoOwner .coOwner .imgCoOwner {
+  width: 70px;
+  height: 70px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  overflow: hidden;
+  margin-right: 15px;
+}
+
+.roomOwner .owner .imgOwner img,
+.roomOwner .roomCoOwner .coOwner .imgCoOwner img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.roomOwner .owner .ownerInfo {
+  padding: 5px 0;
+}
+
+.roomOwner .roomCoOwner .coOwner .imgCoOwner {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  border: 1px solid transparent;
+  overflow: hidden;
+  margin-right: 15px;
+}
+
+.roomOwner .roomCoOwner .coOwner p {
+  padding: 10px 0;
+}
+
+.roomOwner .contactOwner {
+  margin: 30px 0;
+  font-weight: bold;
+  border: 1px solid black;
+  border-radius: 10px;
+  padding: 10px 30px;
+}
+
+.roomOwner .contactOwner:hover {
+  background-color: rgb(233, 233, 233);
+}
+
+.roomOwner .warning i {
+  color: #f7cd29;
+  margin-right: 10px;
+}
+
+.roomOwner .description {
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  display: -webkit-box;
+}
+
+.roomOwner .readMore {
+  font-weight: bold;
+  text-decoration: underline;
+}
+
+.needToKnow p.description {
+  margin: 10px 0;
+}
+
+.needToKnow button.readMore {
+  text-decoration: underline;
+}
+
+.needToKnow button.readMore i {
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.roomDialog .subList:last-child hr {
+  display: none;
+}
