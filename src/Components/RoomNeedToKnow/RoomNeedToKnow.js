@@ -2,14 +2,11 @@ import React, { useState } from "react";
 import RoomMoreInfoDialog from "../RoomMoreInfoDialog/RoomMoreInfoDialog";
 
 const RoomNeedToKnow = () => {
-  const [hasRender, setRender] = useState(false);
-  const [hasRender1, setRender1] = useState(false);
-  const onShow = (isDisplay, flag) => {
-    if (flag) {
-      setRender(!isDisplay);
-    } else {
-      setRender1(!isDisplay);
-    }
+  const [hasRender, setRender] = useState([false, false]);
+  const onShow = (isDisplay, index) => {
+    const lstRender = [...hasRender];
+    lstRender[index] = isDisplay;
+    setRender(lstRender);
   };
   const listData = [
     {
@@ -93,61 +90,35 @@ const RoomNeedToKnow = () => {
     },
   ];
 
+  const renderUI = (lstData) => {
+    let render = lstData.map((data, index) => {
+      const lstRule = [...data.rules];
+      const firstRule = lstRule[0].subList[0];
+      const secondRule = lstRule[0].subList[1];
+      return (
+        <div key={data.id}>
+          <h4 className="font-semibold">{data.title}</h4>
+          <p className="description">{firstRule.content}</p>
+          <p className="description">{secondRule.content}</p>
+          <button
+            className="font-semibold readMore"
+            onClick={() => onShow(true, index)}
+          >
+            Hiển thị thêm<i className="fa-solid fa-chevron-right"></i>
+          </button>
+          {hasRender[index] && (
+            <RoomMoreInfoDialog toggle={onShow} data={data} index={index} />
+          )}
+        </div>
+      );
+    });
+    return render;
+  };
+
   return (
     <div className="needToKnow">
       <h3 className="font-semibold text-xl">Những điều cần biết</h3>
-      <div className="grid grid-cols-3 my-4">
-        <div>
-          <h4 className="font-semibold">Nội quy nhà</h4>
-          <p className="description">Nhận phòng sau 15:00</p>
-          <p className="description">Trả phòng trước 11:00</p>
-          <button
-            className="font-semibold readMore"
-            onClick={() => {
-              setRender(!hasRender);
-            }}
-          >
-            Hiển thị thêm<i className="fa-solid fa-chevron-right"></i>
-          </button>
-          {hasRender && (
-            <RoomMoreInfoDialog
-              toggle={onShow}
-              data={listData[0]}
-              firstItem={true}
-            />
-          )}
-        </div>
-        <div>
-          <h4 className="font-semibold">An toàn và chỗ ở</h4>
-          <p className="description">Máy phát hiện khí CO</p>
-          <p className="description">Máy báo khói</p>
-          <button
-            className="font-semibold readMore"
-            onClick={() => {
-              setRender1(!hasRender1);
-            }}
-          >
-            Hiển thị thêm<i className="fa-solid fa-chevron-right"></i>
-          </button>
-          {hasRender1 && (
-            <RoomMoreInfoDialog
-              toggle={onShow}
-              data={listData[1]}
-              firstItem={false}
-            />
-          )}
-        </div>
-        <div>
-          <h4 className="font-semibold">Chính sách hủy</h4>
-          <p className="description">
-            Thêm ngày cho chuyến đi của bạn để nhận thông tin về chính sách hủy
-            cho đặt phòng này.
-          </p>
-          <button className="font-semibold readMore">
-            Thêm ngày<i className="fa-solid fa-chevron-right"></i>
-          </button>
-        </div>
-      </div>
+      <div className="grid grid-cols-3 my-4">{renderUI(listData)}</div>
     </div>
   );
 };

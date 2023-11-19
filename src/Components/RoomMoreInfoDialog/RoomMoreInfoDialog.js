@@ -50,7 +50,7 @@ const renderList = (ruleData) => {
   );
 };
 
-const RoomMoreInfoDialog = ({ toggle, firstItem, data }) => {
+const RoomMoreInfoDialog = ({ toggle, data, index }) => {
   return (
     <div
       className="relative z-10 roomDialog"
@@ -69,7 +69,7 @@ const RoomMoreInfoDialog = ({ toggle, firstItem, data }) => {
                     type="button"
                     className="bg-transparent hover:bg-gray-200 hover:text-gray-900 rounded-lg text-sm w-8 h-8 ms-auto inline-flex justify-center items-center dark:hover:bg-gray-600 dark:hover:text-white"
                     onClick={() => {
-                      firstItem ? toggle(true, true) : toggle(true, false);
+                      toggle(false, index);
                     }}
                   >
                     <svg
