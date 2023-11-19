@@ -118,7 +118,19 @@ const RoomNeedToKnow = () => {
   return (
     <div className="needToKnow">
       <h3 className="font-semibold text-xl">Những điều cần biết</h3>
-      <div className="grid grid-cols-3 my-4">{renderUI(listData)}</div>
+      <div className="grid grid-cols-3 my-4">
+        <div className="col-span-2 grid grid-cols-2">{renderUI(listData)}</div>
+        <div>
+          <h4 className="font-semibold">Chính sách hủy</h4>
+          <p className="description">
+            Thêm ngày cho chuyến đi của bạn để nhận thông tin về chính sách hủy
+            cho đặt phòng này.
+          </p>
+          <button className="font-semibold readMore">
+            Thêm ngày<i className="fa-solid fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
     </div>
   );
 };
