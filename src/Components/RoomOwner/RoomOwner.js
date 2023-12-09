@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import "./roomOwner.scss";
 
 const RoomOwner = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -7,7 +8,7 @@ const RoomOwner = () => {
     <div className="roomOwner">
       <div className="owner flex">
         <div className="imgOwner">
-          <img src={"./img/owner.jpg"} alt="owner.jpg" />
+          <img src={"./../img/owner.jpg"} alt="owner.jpg" />
         </div>
         <div className="ownerInfo">
           <h3 className="font-semibold text-xl">Chủ nhà Martina</h3>
@@ -52,7 +53,7 @@ const RoomOwner = () => {
             <p className="font-semibold text-lg">Đồng chủ nhà/Đồng tổ chức</p>
             <div className="coOwner flex my-1.5">
               <div className="imgCoOwner">
-                <img src={"./img/co-worker.jpg"} alt="co-worker.jpg" />
+                <img src={"./../img/co-worker.jpg"} alt="co-worker.jpg" />
               </div>
               <p>Paul</p>
             </div>

@@ -1,0 +1,92 @@
+.roomReview {
+  .overall {
+    .overallReview {
+      .img {
+        height: 140px;
+        width: auto;
+        img {
+          height: 100%;
+          width: auto;
+          object-fit: fill;
+        }
+      }
+      .text {
+        font-weight: bold;
+        font-size: 100px;
+        line-height: 100px;
+        color: #3f4246;
+      }
+    }
+  }
+  .review {
+    .reviewItem {
+      margin-bottom: 25px;
+      .reviewer {
+        margin-bottom: 10px;
+        .img {
+          width: 50px;
+          height: 50px;
+          border-radius: 50%;
+          border: 1px solid transparent;
+          overflow: hidden;
+          margin-right: 15px;
+          img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+          }
+        }
+        .name {
+          padding: 5px 0;
+        }
+      }
+      .ratingStar {
+        .starReview {
+          margin-right: 10px;
+        }
+      }
+    }
+    .btnPagination {
+      width: 80%;
+      height: 50px;
+      list-style: none;
+      display: flex;
+      justify-content: end;
+      align-items: center;
+      font-weight: 600;
+      a {
+        padding: 5px 10px;
+        margin: 8px;
+        &:hover {
+          border: 1px solid;
+          border-radius: 5px;
+        }
+      }
+      .btnActive {
+        a {
+          border: 1px solid;
+          border-radius: 5px;
+        }
+      }
+      .btnDisabled {
+        a {
+          color: rgb(204, 204, 204);
+          border: transparent;
+        }
+      }
+    }
+  }
+  .criteria {
+    .item {
+      padding-left: 30px;
+      border-left: 1px solid #dddddd;
+      &:first-child {
+        padding-left: 0;
+        border-left: transparent;
+      }
+      i.icon {
+        font-size: 20px;
+      }
+    }
+  }
+}

@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import RoomMoreInfoDialog from "../RoomMoreInfoDialog/RoomMoreInfoDialog";
+import "./roomNeedToKnow.scss";
 
 const RoomNeedToKnow = () => {
   const [hasRender, setRender] = useState([false, false]);

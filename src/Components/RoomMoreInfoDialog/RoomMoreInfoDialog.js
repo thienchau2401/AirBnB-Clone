@@ -1,4 +1,5 @@
 import React from "react";
+import "./roomMoreInfoDialog.scss";
 
 const render = (rule) => {
   let list = rule.map((data) => {

@@ -1,0 +1,83 @@
+.roomDetail {
+  .roomImg {
+    border-radius: 10px;
+    overflow: hidden;
+    width: 100%;
+    img {
+      width: 100%;
+      height: auto;
+    }
+  }
+  .owner {
+    .imgOwner {
+      width: 60px;
+      height: 60px;
+      border-radius: 50%;
+      border: 1px solid transparent;
+      overflow: hidden;
+      margin-right: 15px;
+      img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+      }
+    }
+    .ownerInfo {
+      padding: 5px 0;
+    }
+  }
+  .roomInfo {
+    i {
+      font-size: 18px;
+      padding: 6px 0;
+      width: 20px;
+      height: 20px;
+    }
+    .content {
+      margin-left: 15px;
+    }
+  }
+  .bedroom {
+    div {
+      border: 1px solid rgb(235, 235, 235);
+      border-radius: 10px;
+      width: 200px;
+      height: 150px;
+      padding: 30px;
+      i {
+        font-size: 20px;
+        margin-bottom: 15px;
+      }
+    }
+  }
+  .roomOffer {
+    .item {
+      margin-bottom: 15px;
+    }
+    p {
+      margin-left: 10px;
+    }
+  }
+  .evaluate {
+    border: 1px solid #dddddd;
+    border-radius: 10px;
+    padding: 20px 0;
+    .firstColumn {
+      .img {
+        height: 60px;
+        width: auto;
+        img {
+          height: 100%;
+          width: auto;
+          object-fit: fill;
+        }
+      }
+      .text {
+        font-size: 16px;
+      }
+    }
+    .fourthColumn {
+      border-left: 1px solid #dddddd;
+    }
+  }
+}

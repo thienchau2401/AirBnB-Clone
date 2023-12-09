@@ -4,6 +4,7 @@ import Home from "./pages/Home/Home";
 import SignIn from "./pages/SignIn/SignIn";
 import SignUp from "./pages/SignUp/SignUp";
 import Room from "./pages/Room/Room";
+
 function App() {
   return (
     <>
@@ -11,7 +12,9 @@ function App() {
         {/* User page */}
         <Route path="/" element={<UserTemplate />}>
           <Route index element={<Home />} />
-          <Route path="/room" element={<Room />} />
+          <Route path="/room/*">
+            <Route path=":id" element={<Room />}></Route>
+          </Route>
         </Route>
         {/* Admin page */}
 
