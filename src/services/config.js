@@ -7,8 +7,8 @@ export const https = axios.create({
   baseURL: 'https://airbnbnew.cybersoft.edu.vn',
   headers: {
     TokenCyberSoft,
-    Authorization:
-      'Bearer ' + JSON.parse(localStorage.getItem('userLogin'))?.accessToken,
+    // Authorization:
+    //   'Bearer ' + JSON.parse(localStorage.getItem('userLogin'))?.accessToken,
   },
   timeout: 10000,
 });
