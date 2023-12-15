@@ -1,0 +1,9 @@
+.roomDialog {
+  .subList {
+    &:last-child {
+      hr {
+        display: none;
+      }
+    }
+  }
+}
