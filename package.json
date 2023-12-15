@@ -16,12 +16,9 @@
     "react-redux": "^8.1.3",
     "react-router-dom": "^6.18.0",
     "react-scripts": "5.0.1",
-<<<<<<< HEAD
     "react-scrollmagic": "^2.3.0",
     "scrollmagic": "^2.0.8",
-=======
     "sass": "^1.69.5",
->>>>>>> anh_branch
     "web-vitals": "^2.1.4",
     "yup": "^1.3.2"
   },
