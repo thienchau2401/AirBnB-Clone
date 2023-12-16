@@ -1,12 +1,15 @@
 import React from 'react'
+import useResponsive from "../../hook/useResponsive";
 
 const Footer = () => {
+  const windowSize = useResponsive();
+
   return (
-    <div className=' bg-[#F7F7F7] px-[80px]'>
-      <div className=' w-full max-w-screen-2xl pt-5 '>
+    <div className={`bg-[#F7F7F7] ${windowSize.widthWindow <= 1024 ? 'px-[40px]' : 'px-[80px]'}`}>
+      <div className=' w-full max-w-screen-2xl pt-4 '>
         <footer>
           <div className=" w-full max-w-screen-2xl ">
-            <div className="grid grid-cols-2 gap-8 py-6 lg:py-8 md:grid-cols-3 ">
+            <div className="grid grid-cols-1 gap-8 py-5 lg:py-8 md:grid-cols-3 ">
               <div >
                 <h2 className="mb-4 text-sm font-semibold text-gray-900  dark:text-white">Hỗ trợ</h2>
                 <ul className="text-black  dark:text-gray-400 text-sm font-normal">
@@ -71,15 +74,8 @@ const Footer = () => {
                 </ul>
               </div>
             </div>
-            <div className=" flex sm:justify-center md:mt-0 border-t space-x-5  rtl:space-x-reversepx-4 py-6  md:flex md:items-center md:justify-between">
-              <div className='space-x-5 text-sm text-black sm:text-center'>
-                <span >© 2023 <a href="https://flowbite.com/">Airbnb, Inc.</a>
-                </span>
-                <a href='#' >Quyền riêng tư</a>
-                <a href='#' >Điều khoản</a>
-                <a href='#' >Sơ đồ trang web</a>
-              </div>
-              <div className="flex mt-4 sm:justify-center md:mt-0 space-x-5 rtl:space-x-reverse">
+            <div className={` ${windowSize.widthWindow <= 768 ? '' : 'flex items-center justify-between flex-row-reverse'}  mt-0 border-t py-5 `}>
+              <div className={`flex mt-4 justify-center space-x-5 ${windowSize.widthWindow <= 768 ? 'mb-4' : ''}`}>
                 <div>
                   <span className='space-x-2'>
                     <i class="fa-solid fa-globe"></i>
@@ -102,11 +98,18 @@ const Footer = () => {
                   <i class="fa-brands fa-instagram"></i>
                 </a>
               </div>
+              <div className={`text-sm text-black text-center `}>
+                <span>© 2023 <a href="https://flowbite.com/">Airbnb, Inc.</a>
+                </span>
+                <a className='ml-5' href='#' >Quyền riêng tư</a>
+                <a className='ml-5' href='#' >Điều khoản</a>
+                <a className='ml-5' href='#' >Sơ đồ trang web</a>
+              </div>
             </div>
           </div>
         </footer>
-      </div>
-    </div>
+      </div >
+    </div >
   )
 }
 

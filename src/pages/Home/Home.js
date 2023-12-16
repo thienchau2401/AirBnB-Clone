@@ -1,9 +1,13 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { Switch, Carousel } from "antd";
 import { arrHome, arrPhoBien, arrVanHoaVaNgheThuat, arrNgoaiTroi, arrNui, arrBien, arrDanhMuc, arrTraiNghiem } from "./dataHome";
 import axios from "axios";
 import { quanLyPhongServ } from "./../../services/quanLyPhong";
 import { Tabs } from 'antd';
+import { useSelector, useDispatch } from 'react-redux'
+import { nonTimKiem } from './../../redux/slices/sliceHeader'
+import useResponsive from "../../hook/useResponsive";
+
 
 const onChange = (key) => {
   console.log(key);
@@ -21,9 +25,14 @@ const mapDataFooter = (item, index) => {
 }
 
 const Home = () => {
+  const { search } = useSelector((state) => state.sliceHeader);
+  const dispatch = useDispatch();
   const [arrPhong, setArrPhong] = useState([]);
   const [showMore, setShowMore] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const divRef = useRef();
+  const windowSize = useResponsive();
+
   useEffect(() => {
     quanLyPhongServ
       .getPhong()
@@ -39,6 +48,7 @@ const Home = () => {
   useEffect(() => {
     const handleScroll = () => {
       if (window.scrollY > 100) {
+        dispatch(nonTimKiem());
         setScrolled(true);
         document.getElementById('header-content').style.boxShadow = 'rgb(0 0 0 / 16%) 0 0 calc(2px + 4px)';
       } else {
@@ -52,6 +62,11 @@ const Home = () => {
       window.removeEventListener('scroll', handleScroll);
     };
   }, [])
+
+  const handleClickDiv = () => {
+    dispatch(nonTimKiem());
+  }
+
 
   const handleClick = () => {
     setShowMore(!showMore);
@@ -128,15 +143,22 @@ const Home = () => {
       </div>,
     },
   ];
+
+  const displayCount = windowSize.widthWindow <= 768
+    ? showMore ? arrPhong.length : 4
+    : windowSize.widthWindow < 1024
+      ? showMore ? arrPhong.length : 6
+      : arrHome.length;
+
   return (
-    <>
-      <div className="px-[80px] pb-5">
+    <div className="relative">
+      <div className={`${windowSize.widthWindow <= 1024 ? 'px-[40px]' : 'px-[80px]'} pb-5`}>
         <div id="header-content" style={{ position: 'fixed', top: '78px', right: '0', left: '0', background: 'white', zIndex: '5', boxShadow: 'none' }} className={scrolled ? 'scrolled' : ''}>
-          <div className="mx-auto max-w-screen-2xl mt-3 px-[80px]">
-            <div className="flex flex-wrap justify-between items-center ">
-              <div className="w-3/4">
-                <div className="h-[78px] grid grid-cols-12 ">
-                  {arrHome.map((item, index) => {
+          <div className={`mx-auto max-w-screen-2xl mt-3 ${windowSize.widthWindow <= 1024 ? 'px-[40px]' : 'px-[80px]'}`}>
+            <div className="flex justify-between items-center ">
+              <div className={`${windowSize.widthWindow <= 768 ? 'w-[50%]' : windowSize.widthWindow <= 1024 ? 'w-[65%]' : 'w-3/4'}`}>
+                <div className={`h-[78px] ${windowSize.widthWindow <= 768 ? 'grid-cols-4' : windowSize.widthWindow <= 1024 ? 'grid-cols-8' : 'grid-cols-12'} grid truncate`}>
+                  {arrHome.slice(0, displayCount).map((item, index) => {
                     return (
                       <div
                         className="my-[11px] py-1 flex flex-col items-center"
@@ -162,12 +184,12 @@ const Home = () => {
                 <div className="font-medium text-xs rounded-lg">
                   Hiển thị tổng trước thuế
                 </div>
-                <Switch defaultChecked onChange={onChange} className="bg-gray-400" />
+                <Switch defaultChecked={false} onChange={onChange} className="bg-gray-400" />
               </div>
             </div>
           </div>
         </div>
-        <div className="my-3 grid grid-cols-4 gap-5 mt-44">
+        <div className={`my-3 grid gap-5 mt-44 ${windowSize.widthWindow <= 768 ? 'grid-cols-2' : 'grid-cols-4'}`}>
           {arrPhong.slice(0, showMore ? arrPhong.length : 20).map((item, index) => {
             return (
               <div className="pb-1 ">
@@ -203,7 +225,7 @@ const Home = () => {
           <button className="btn bg-black px-6 py-3 rounded-lg text-white font-semibold" onClick={handleClick}>{showMore ? 'Ẩn bớt' : 'Hiển thị thêm'}</button>
         </div>
       </div>
-      <div className="bg-[#F7F7F7] px-[80px] py-7 mt-5 border-b">
+      <div className={`bg-[#F7F7F7]  ${windowSize.widthWindow <= 1024 ? 'px-[40px]' : 'px-[80px]'} py-7 mt-5 border-b`}>
         <h2 className='text-2xl py-1 font-semibold'>Nguồn cảm hứng cho những kỳ nghỉ sau này</h2>
         <Tabs
           className='py-1 font-semibold'
@@ -213,7 +235,8 @@ const Home = () => {
           indicatorSize={(origin) => origin - 16}
         />
       </div>
-    </>
+      <div ref={divRef} onClick={handleClickDiv} className={`absolute top-0 left-0  w-full h-full ${search ? '' : 'hidden'}`} style={{ backgroundColor: 'rgb(0 0 0/25%)' }}></div>
+    </div>
   );
 };
 
