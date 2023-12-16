@@ -99,7 +99,7 @@ const Footer = () => {
                 </a>
               </div>
               <div className={`text-sm text-black text-center `}>
-                <span>© 2023 <a href="https://flowbite.com/">Airbnb, Inc.</a>
+                <span className={`${windowSize.widthWindow <= 426 ? 'block mb-1' : ''}`}>© 2023 <a href="https://flowbite.com/">Airbnb, Inc.</a>
                 </span>
                 <a className='ml-5' href='#' >Quyền riêng tư</a>
                 <a className='ml-5' href='#' >Điều khoản</a>

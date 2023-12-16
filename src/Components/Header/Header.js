@@ -99,7 +99,7 @@ const Header = () => {
               <Calendar fullscreen={false} onPanelChange={onPanelChange} />
             </div>
             <span className='h-6 w-[1px] bg-[#DDDDDD]'></span>
-            <button onClick={clickTimKiem} className={`inline-flex px-3 py-3 ${windowSize.widthWindow <= 768 ? 'w-[210px]' : 'w-[210px]'} text-center focus:shadow-xl hover:rounded-full hover:bg-gray-300 focus:bg-white focus:rounded-full truncate`}>
+            <button onClick={clickTimKiem} className={`inline-flex px-3 py-3 ${windowSize.widthWindow <= 768 ? 'w-[210px]' : 'w-[210px]'} text-center focus:shadow-xl hover:rounded-full hover:bg-gray-300 focus:bg-white focus:rounded-full`}>
               <div className='pt-[3px] ml-1'>
                 <span className='text-xs font-bold block text-left'>Khách</span>
                 <span className='text-sm'>Thêm khách</span>
@@ -247,7 +247,28 @@ const Header = () => {
 
   return (
     <div style={{ position: 'fixed', top: '0', right: '0', left: '0', background: 'white', zIndex: '7', textAlign: 'center' }} className={scrolled ? 'scrolled' : ''}>
-      <header className={`${windowSize.widthWindow <= 1024 ? 'px-[40px]' : 'px-[80px]'}`} >
+      {windowSize.widthWindow <= 426 ? <>
+        <div className='p-3 flex items-center justify-between'>
+          <div className='w-3/4'>
+            <button className='flex items-center justify-start border p-2 rounded-full w-full'>
+              <i className=" ml-3 fa-solid fa-magnifying-glass text-xl inline-block" />
+              <div className='ml-4 text-left'>
+                <span className='block text-sm font-medium'>Địa điểm bất kỳ</span>
+                <div className='flex items-center justify-start text-xs'>
+                  <p className='inline-block mr-2'>Tuần bất kỳ</p>
+                  <p>Thêm khách</p>
+                </div>
+              </div>
+            </button>
+          </div>
+          <div>
+            <button className="px-4 py-4 border font-medium text-xs rounded-lg">
+              <i className="fa-solid fa-sliders mr-2"></i>
+              Bộ lọc
+            </button>
+          </div>
+        </div>
+      </> : <header className={`${windowSize.widthWindow <= 1024 ? 'px-[40px]' : 'px-[80px]'}`} >
         <nav className={`bg-white dark:bg-gray-800 relative ${search ? 'h-[175px]' : ''} `}>
           <div className="flex justify-center items-center py-3 max-w-screen-2xl mx-auto border-gray-200 ">
             <a href="http://localhost:3000/" className={`flex items-center ${windowSize.widthWindow <= 768 ? 'w-[5%]' : 'w-1/3'} ${windowSize.widthWindow <= 1024 ? 'w-[25%]' : 'w-1/3'}`}>
@@ -265,7 +286,7 @@ const Header = () => {
             </div>
             <div className={`justify-between items-center ${windowSize.widthWindow <= 768 ? 'w-[47%]' : 'w-1/3'}  text-right order-1 ${windowSize.widthWindow <= 1024 ? 'w-[35%]' : 'w-1/3'}`}>
               <div className={`${search ? 'hidden' : ''} border rounded-full shadow hover:shadow-md`}>
-                <span className={`inline-flex items-center w-full ${windowSize.widthWindow <= 768 ? '' : 'pl-3'}`}>
+                <span className={`inline-flex items-center w-full  ${windowSize.widthWindow <= 1024 ? '' : 'pl-7'}`}>
                   <button onClick={() => { dispacth(timKiem()) }} className='py-3 px-4 text-sm font-medium truncate'>
                     Địa điểm bất ngờ
                   </button>
@@ -290,7 +311,8 @@ const Header = () => {
             </div>
           </div>
         </nav>
-      </header>
+      </header>}
+
       <div className='px-0 w-[full] bg-gray-200 h-[1px]'></div>
     </div >
   )
