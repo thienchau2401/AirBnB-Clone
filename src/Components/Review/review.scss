@@ -89,4 +89,28 @@
       }
     }
   }
+  @media only screen and (max-width: 768px) {
+    .criteria {
+      .item {
+        padding-left: 15px;
+        .star {
+          margin-left: 5px;
+        }
+      }
+    }
+  }
+  @media only screen and (max-width: 425px) {
+    .criteria {
+      display: none;
+    }
+    .review {
+      .reviewContent {
+        grid-template-columns: repeat(1, minmax(0, 1fr));
+      }
+      .btnPagination {
+        width: auto;
+        justify-content: center;
+      }
+    }
+  }
 }

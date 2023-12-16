@@ -1,0 +1,80 @@
+.bookRoom {
+  margin-left: 30px;
+  .disabledBtn {
+    color: rgb(192, 192, 192);
+    cursor: not-allowed;
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    border: 1px solid rgb(172, 172, 172);
+    margin: 10px 0;
+  }
+  .btn {
+    border-radius: 50%;
+    height: 30px;
+    width: 30px;
+    border: 1px solid rgb(83, 83, 83);
+    margin: 10px 0;
+    color: rgb(83, 83, 83);
+    &:hover {
+      border: 1px solid black;
+      color: black;
+    }
+  }
+  .btnBook {
+    color: white;
+    background-color: #fd355c;
+    border-radius: 5px;
+    border: 1px solid #fd355c;
+    padding: 10px 15px;
+    width: 100%;
+  }
+  .dialog {
+    border: 1px solid #dddddd;
+    background-color: white;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    border-radius: 10px;
+    padding: 15px 20px;
+  }
+  .chooseNumber {
+    border: 1px solid rgb(172, 172, 172);
+    border-radius: 6px;
+    padding: 10px 15px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    border-top: transparent;
+  }
+  .ant-picker {
+    width: 100%;
+    padding: 10px 15px;
+    border: 1px solid rgb(172, 172, 172);
+    border-bottom-left-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+  @media only screen and (max-width: 768px) {
+    .disabledBtn {
+      border: transparent;
+      margin: 0;
+    }
+    .btn {
+      border: transparent;
+      margin: 0;
+      &:hover {
+        border: transparent;
+      }
+    }
+    #customer {
+      width: 50%;
+      height: 50%;
+      margin-top: 7px;
+    }
+    .chooseNumber {
+      .divBtn {
+        padding: calc(100% / 2) 0;
+      }
+    }
+  }
+  @media only screen and (max-width: 425px) {
+    display: none;
+  }
+}

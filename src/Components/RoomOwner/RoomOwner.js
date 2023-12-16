@@ -15,10 +15,10 @@ const RoomOwner = () => {
           <p className="text-gray-500">Đã tham gia vào tháng 9 năm 2022</p>
         </div>
       </div>
-      <div className="grid grid-cols-2 gap-14">
+      <div className="grid grid-cols-2 gap-14 info">
         <div>
           <div className="review my-4">
-            <div className="flex gap-7">
+            <div className="flex gap-7 infoCriteria">
               <div>
                 <i className="fa-solid fa-star me-4"></i>
                 1.197 đánh giá

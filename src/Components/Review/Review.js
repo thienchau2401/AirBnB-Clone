@@ -13,13 +13,13 @@ const renderRating = (aver) => {
           <p key={i}>
             {arrRating[i]}
             {arrRating[i] == aver ? (
-              <span className="ms-3">
+              <span className="ms-3 star">
                 {Array.from(Array(arrRating[i]), (e, i) => {
                   return <i className="fa-solid fa-star text-sm" key={i}></i>;
                 })}
               </span>
             ) : (
-              <span className="ms-3">
+              <span className="ms-3 star">
                 {Array.from(Array(arrRating[i]), (e, i) => {
                   return <i className="fa-regular fa-star text-sm" key={i}></i>;
                 })}
@@ -191,7 +191,7 @@ const Review = () => {
       </div>
       <hr className="my-5" />
       <div className="review">
-        <div className="grid grid-cols-2">
+        <div className="grid grid-cols-2 reviewContent">
           {arrReview
             .slice(pagesVisited, pagesVisited + reviewPerPage)
             .map((item, index) => {

@@ -1,6 +1,7 @@
 import React from "react";
 import { useSelector } from "react-redux";
 import "./roomDetails.scss";
+import BookRoom from "../BookRoom/BookRoom";
 
 const RoomDetails = () => {
   const { argRoom } = useSelector((state) => state.roomSlice);
@@ -9,11 +10,11 @@ const RoomDetails = () => {
 
   return (
     <div className="roomDetail">
-      <h1 className="font-semibold text-3xl mb-5">{argRoom.tenPhong}</h1>
+      <h1 className="font-semibold text-3xl my-5">{argRoom.tenPhong}</h1>
       <div className="roomImg mb-5">
         <img src={argRoom.hinhAnh} />
       </div>
-      <div className="grid grid-cols-3">
+      <div className="grid grid-cols-3 detailsRoom">
         <div className="col-span-2">
           <h2 className="font-semibold text-2xl">{argRoom.tenPhong}</h2>
           <p className="mb-5">
@@ -33,7 +34,7 @@ const RoomDetails = () => {
                 <img src="./../img/review2.jpg" alt="review2.jpg" />
               </div>
             </div>
-            <p className="font-semibold">
+            <p className="font-semibold favorite">
               Khách đánh giá đây là một trong những ngôi nhà được yêu thích nhất
               trên Airbnb
             </p>
@@ -291,7 +292,9 @@ const RoomDetails = () => {
             </div>
           </div>
         </div>
-        <div>Testing</div>
+        <div>
+          <BookRoom />
+        </div>
       </div>
     </div>
   );

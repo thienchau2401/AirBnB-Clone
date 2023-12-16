@@ -97,7 +97,7 @@ const RoomNeedToKnow = () => {
       const firstRule = lstRule[0].subList[0];
       const secondRule = lstRule[0].subList[1];
       return (
-        <div key={data.id}>
+        <div key={data.id} className="item">
           <h4 className="font-semibold">{data.title}</h4>
           <p className="description">{firstRule.content}</p>
           <p className="description">{secondRule.content}</p>
@@ -119,8 +119,10 @@ const RoomNeedToKnow = () => {
   return (
     <div className="needToKnow">
       <h3 className="font-semibold text-xl">Những điều cần biết</h3>
-      <div className="grid grid-cols-3 my-4">
-        <div className="col-span-2 grid grid-cols-2">{renderUI(listData)}</div>
+      <div className="grid grid-cols-3 my-4 needToKnowContent">
+        <div className="col-span-2 grid grid-cols-2 needToKnowItem">
+          {renderUI(listData)}
+        </div>
         <div>
           <h4 className="font-semibold">Chính sách hủy</h4>
           <p className="description">

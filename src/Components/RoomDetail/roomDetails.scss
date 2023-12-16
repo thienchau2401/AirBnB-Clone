@@ -1,4 +1,5 @@
 .roomDetail {
+  margin-top: 90px;
   .roomImg {
     border-radius: 10px;
     overflow: hidden;
@@ -78,6 +79,19 @@
     }
     .fourthColumn {
       border-left: 1px solid #dddddd;
+    }
+  }
+  @media only screen and (max-width: 768px) {
+    .evaluate {
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      .favorite {
+        display: none;
+      }
+    }
+  }
+  @media only screen and (max-width: 425px) {
+    .detailsRoom {
+      grid-template-columns: repeat(2, minmax(0, 1fr));
     }
   }
 }

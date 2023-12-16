@@ -8,6 +8,7 @@ import { getRoomInfoApi } from "../../redux/slices/roomSlice";
 import { useParams } from "react-router-dom";
 import { getReviewByRoomIdApi } from "../../redux/slices/reviewSlice";
 import Review from "../../Components/Review/Review";
+import "./room.scss";
 
 const Room = () => {
   const params = useParams();
@@ -21,7 +22,7 @@ const Room = () => {
   }, []);
 
   return (
-    <div className="container mx-auto">
+    <div className="lg:container lg:mx-auto md:mx-auto roomPage">
       <RoomDetails />
       <hr className="my-5" />
       <Review />
